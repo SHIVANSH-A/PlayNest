@@ -1,12 +1,65 @@
-# React + Vite
+# PlayNest 🎮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fast, and responsive game discovery web app built with **React** and **Vite**. Explore trending games by genre, view detailed stats, and enjoy a sleek dark UI powered by TailwindCSS and Framer Motion.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 Search games with live results  
+- 📊 Explore trending and genre-specific games  
+- 🌙 Dark/light theme toggle  
+- ⚡ Smooth animations using Framer Motion  
+- 🔥 Uses [RAWG Video Games Database API](https://rawg.io/apidocs)  
+- 🌐 Deployed on Vercel (coming soon)
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [React](https://reactjs.org/)  
+- [Vite](https://vitejs.dev/)  
+- [Tailwind CSS](https://tailwindcss.com/)  
+- [Framer Motion](https://www.framer.com/motion/)  
+- [React Router](https://reactrouter.com/)  
+- [RAWG API](https://rawg.io/apidocs)
+
+## 📦 Getting Started
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/your-username/playnest.git
+cd playnest
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Create `.env` file
+```env
+VITE_RAWG_API_KEY=your_rawg_api_key_here
+```
+> 📌 Note: You can obtain an API key from [RAWG.io](https://rawg.io/apidocs)
+
+### 4. Run the development server
+```bash
+npm run dev
+```
+Visit [http://localhost:5173](http://localhost:5173)
+
+## 📁 Folder Structure
+```bash
+.
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── contexts/
+│   ├── Services/
+│   ├── App.jsx
+│   ├── main.jsx
+├── .env
+├── .gitignore
+├── index.html
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+```
