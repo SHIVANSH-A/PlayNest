@@ -19,7 +19,9 @@ function Header() {
 
     return (
         <div className="flex items-center justify-between gap-5 p-4 mb-2 w-full shadow-md bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 animate-fade-in">
+            {/* Logo */}
             <img src={logo} width={60} height={60} onClick={() => { navigate('/') }} className="cursor-pointer hover:scale-105 transition" />
+            {/* Search */}
             <div className="flex bg-slate-300 dark:bg-slate-600 p-2 px-4 w-full items-center rounded-full">
                 <CiSearch onClick={handleSearch} className="cursor-pointer text-xl text-black dark:text-white" />
                 <input
@@ -32,6 +34,7 @@ function Header() {
                 />
             </div>
             <div className="mr-1">
+                {/* Theme-toggle */}
                 {theme === 'dark' ? (
                     <FaRegSun
                         className="bg-yellow-400 text-[41px] text-white p-2 rounded-full cursor-pointer shadow-lg"
