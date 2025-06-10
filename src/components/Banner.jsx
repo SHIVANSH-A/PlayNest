@@ -12,7 +12,7 @@ function Banner({ currGame }) {
 
     return (
         <div className="relative transition-all duration-1000 ease-in-out overflow-hidden">
-
+            {/* {Button Handling animation} */}
             <button
                 onClick={handlePrev}
                 className="absolute left-4 top-1/2 -translate-y-1/2 z-20
