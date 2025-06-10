@@ -16,6 +16,7 @@ function GetGenreList({ setGenreId, setGenreName }) {
     };
 
     return (
+        // Nav for Genre
         <div className="pr-5 animate-fade-in">
             <h1 className="text-[30px] font-bold dark:text-white mb-3">Genre</h1>
             {genreList.map((item, index) => (
