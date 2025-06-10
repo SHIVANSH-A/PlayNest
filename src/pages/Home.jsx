@@ -38,6 +38,7 @@ function Home() {
         })
     }
     return (
+        // Renders four components
         <div className='grid grid-cols-4 px-5'>
             <div className='hidden md:block'>
                 <GetGenreList setGenreId={(setGenreId) => getGenreGamesListByid(setGenreId)}
