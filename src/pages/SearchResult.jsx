@@ -7,7 +7,7 @@ function SearchResult() {
     const [results, setResults] = useState([])
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
-
+    //Search func
     useEffect(() => {
         setLoading(true)
         const q = query.toLowerCase()
