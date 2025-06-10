@@ -7,7 +7,8 @@ function TrendingGames({ gameList }) {
         <div className="mt-5">
             <h1 className="font-bold text-[30px] dark:text-white mb-4 animate-fade-in">Trending Games</h1>
             <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 pt-4 gap-6">
-                {gameList.map((item, index) =>
+            {/* FourTrending Games */}
+                {gameList.map((item, index) => 
                     index < 4 ? (
                         <div
                             key={item.id}
