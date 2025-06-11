@@ -43,18 +43,15 @@ function Home() {
                     {(allGamesList.length > 0 && allGamesListGenre.length > 0) && (
                         <div>
                             <Banner
-                                currGame={allGamesList[bannerIndex]}
+                                currGame={{ ...allGamesList[bannerIndex], index: bannerIndex }} // pass index
                                 onNext={() =>
-                                    setBannerIndex((prev) =>
-                                        (prev + 1) % allGamesList.length
-                                    )
+                                    setBannerIndex((prev) => (prev + 1) % allGamesList.length)
                                 }
                                 onPrev={() =>
-                                    setBannerIndex((prev) =>
-                                        (prev - 1 + allGamesList.length) % allGamesList.length
-                                    )
+                                    setBannerIndex((prev) => (prev - 1 + allGamesList.length) % allGamesList.length)
                                 }
                             />
+
                             <TrendingGames gameList={allGamesList} />
                             <GenreGames gameList={allGamesListGenre} genreName={genreName} />
                         </div>
