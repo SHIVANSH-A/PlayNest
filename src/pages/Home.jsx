@@ -4,6 +4,7 @@ import GlobalAPI from '../Services/GlobalAPI'
 import Banner from '../components/Banner';
 import TrendingGames from '../components/TrendingGames';
 import GenreGames from '../components/GenreGames';
+import Footer from '../components/Footer';
 
 function Home() {
     const [allGamesList, setAllGamesList] = useState();
@@ -37,22 +38,29 @@ function Home() {
             setAllGamesListGenre(resp.data.results);
         })
     }
+
     return (
-        // Renders four components
-        <div className='grid grid-cols-4 px-5'>
-            <div className='hidden md:block'>
-                <GetGenreList setGenreId={(setGenreId) => getGenreGamesListByid(setGenreId)}
-                    setGenreName={(name) => setGenreNameByItem(name)}
-                />
-            </div>
-            <div className=' col-span-4 md:col-span-3'>{(allGamesList?.length > 0 && allGamesListGenre?.length) ?
-                <div>
-                    <Banner currGame={allGamesList[bannerIndex]} />
-                    <TrendingGames gameList={allGamesList} />
-                    <GenreGames gameList={allGamesListGenre} genreName={genreName} />
+        <>
+            <div className='grid grid-cols-4 px-5'>
+                <div className='hidden md:block'>
+                    <GetGenreList setGenreId={(setGenreId) => getGenreGamesListByid(setGenreId)}
+                        setGenreName={(name) => setGenreNameByItem(name)}
+                    />
                 </div>
-                : null}</div>
-        </div>
+                <div className=' col-span-4 md:col-span-3'>
+                    {(allGamesList?.length > 0 && allGamesListGenre?.length) &&
+                        <div>
+                            <Banner currGame={allGamesList[bannerIndex]} />
+                            <TrendingGames gameList={allGamesList} />
+                            <GenreGames gameList={allGamesListGenre} genreName={genreName} />
+                        </div>
+                    }
+                </div>
+            </div>
+
+            {/* Footer outside the grid to take full width */}
+            <Footer />
+        </>
     )
 }
 
