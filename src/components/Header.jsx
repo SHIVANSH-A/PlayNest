@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import logo from './../assets/images/logo.png';
+import logo from './../assets/images/logo1.gif';
 import { CiSearch } from 'react-icons/ci';
 import { FaRegMoon, FaRegSun } from 'react-icons/fa';
 import { ThemeContext } from '../contexts/ThemeContext';
@@ -18,9 +18,19 @@ function Header() {
     };
 
     return (
-        <div className="flex items-center justify-between gap-5 p-4 mb-2 w-full shadow-md bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 animate-fade-in">
+        <div
+            className="flex items-center justify-between gap-5 p-4 mb-2 w-full
+  bg-gradient-to-r from-slate-900 via-slate-800 to-slate-500
+  dark:from-slate-900 dark:via-slate-800 dark:to-slate-600
+  animate-fade-in relative z-10"
+            style={{
+                WebkitMaskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)',
+                maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)',
+            }}
+        >
+
             {/* Logo */}
-            <img src={logo} width={60} height={60} onClick={() => { navigate('/') }} className="cursor-pointer hover:scale-105 transition" />
+            <img src={logo} width={140} height={60} onClick={() => { navigate('/') }} className="cursor-pointer hover:scale-105 transition" />
             {/* Search */}
             <div className="flex bg-slate-300 dark:bg-slate-600 p-2 px-4 w-full items-center rounded-full">
                 <CiSearch onClick={handleSearch} className="cursor-pointer text-xl text-black dark:text-white" />
