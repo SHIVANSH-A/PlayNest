@@ -25,10 +25,12 @@ function Home() {
 
     const getGenreGamesListByid = (id) => {
         GlobalAPI.getGenreGameList(id).then((resp) => {
-            console.log("genre " + id);
             setAllGamesListGenre(resp.data.results);
         });
     };
+
+    // Slice top 4 games for the banner
+    const bannerGames = allGamesList.slice(0, 4);
 
     return (
         <>
@@ -40,18 +42,17 @@ function Home() {
                     />
                 </div>
                 <div className='col-span-4 md:col-span-3'>
-                    {(allGamesList.length > 0 && allGamesListGenre.length > 0) && (
+                    {(bannerGames.length > 0 && allGamesListGenre.length > 0) && (
                         <div>
                             <Banner
-                                currGame={{ ...allGamesList[bannerIndex], index: bannerIndex }} // pass index
+                                currGame={{ ...bannerGames[bannerIndex], index: bannerIndex }}
                                 onNext={() =>
-                                    setBannerIndex((prev) => (prev + 1) % allGamesList.length)
+                                    setBannerIndex((prev) => (prev + 1) % bannerGames.length)
                                 }
                                 onPrev={() =>
-                                    setBannerIndex((prev) => (prev - 1 + allGamesList.length) % allGamesList.length)
+                                    setBannerIndex((prev) => (prev - 1 + bannerGames.length) % bannerGames.length)
                                 }
                             />
-
                             <TrendingGames gameList={allGamesList} />
                             <GenreGames gameList={allGamesListGenre} genreName={genreName} />
                         </div>
