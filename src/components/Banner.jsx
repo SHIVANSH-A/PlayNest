@@ -19,30 +19,30 @@ function Banner({ currGame, onNext, onPrev }) {
 
     return (
         <div className="relative transition-all duration-1000 ease-in-out overflow-hidden">
-            {/* Left button */}
+            {/* Glassmorphism Left Button */}
             <button
                 onClick={handlePrev}
                 className="absolute left-4 top-1/2 -translate-y-1/2 z-20
              bg-gradient-to-br from-[#1e3c72] to-[#2a5298]
-             text-white p-4 rounded-full shadow-lg
-             hover:scale-110 hover:shadow-[0_0_20px_rgba(30,60,114,0.8)]
-             border-2 border-white/20 backdrop-blur-md
+             text-white p-4 rounded-full shadow-lg backdrop-blur-md
+             border border-white/20 bg-opacity-30
+             hover:scale-110 hover:shadow-[0_0_25px_rgba(30,60,114,0.8)]
              transition-all duration-300"
             >
-                <FaChevronLeft size={24} />
+                <FaChevronLeft size={20} />
             </button>
 
-            {/* Right button */}
+            {/* Glassmorphism Right Button */}
             <button
                 onClick={handleNext}
                 className="absolute right-4 top-1/2 -translate-y-1/2 z-20
              bg-gradient-to-br from-[#1e3c72] to-[#2a5298]
-             text-white p-4 rounded-full shadow-lg
-             hover:scale-110 hover:shadow-[0_0_20px_rgba(30,60,114,0.8)]
-             border-2 border-white/20 backdrop-blur-md
+             text-white p-4 rounded-full shadow-lg backdrop-blur-md
+             border border-white/20 bg-opacity-30
+             hover:scale-110 hover:shadow-[0_0_25px_rgba(30,60,114,0.8)]
              transition-all duration-300"
             >
-                <FaChevronRight size={24} />
+                <FaChevronRight size={20} />
             </button>
 
             <AnimatePresence mode="wait">
@@ -74,6 +74,17 @@ function Banner({ currGame, onNext, onPrev }) {
                     />
                 </motion.div>
             </AnimatePresence>
+
+            {/* Carousel dots */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
+                {[...Array(4)].map((_, index) => (
+                    <div
+                        key={index}
+                        className={`h-2 w-2 rounded-full transition-all duration-300 ${currGame.index === index ? 'bg-white' : 'bg-white/40'
+                            }`}
+                    />
+                ))}
+            </div>
         </div>
     );
 }
