@@ -3,16 +3,23 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-function Banner({ currGame }) {
+function Banner({ currGame, onNext, onPrev }) {
     const navigate = useNavigate();
     const [animateKey, setAnimateKey] = useState(0);
 
-    const handleNext = () => setAnimateKey((prev) => prev + 1);
-    const handlePrev = () => setAnimateKey((prev) => prev - 1);
+    const handleNext = () => {
+        onNext();
+        setAnimateKey((prev) => prev + 1);
+    };
+
+    const handlePrev = () => {
+        onPrev();
+        setAnimateKey((prev) => prev - 1);
+    };
 
     return (
         <div className="relative transition-all duration-1000 ease-in-out overflow-hidden">
-            {/* {Button Handling animation} */}
+            {/* Left button */}
             <button
                 onClick={handlePrev}
                 className="absolute left-4 top-1/2 -translate-y-1/2 z-20
@@ -25,6 +32,7 @@ function Banner({ currGame }) {
                 <FaChevronLeft size={24} />
             </button>
 
+            {/* Right button */}
             <button
                 onClick={handleNext}
                 className="absolute right-4 top-1/2 -translate-y-1/2 z-20
@@ -61,7 +69,7 @@ function Banner({ currGame }) {
                     </div>
                     <img
                         src={currGame.background_image}
-                        className="md:h-[320px] w-full rounded-lg "
+                        className="md:h-[320px] w-full rounded-lg"
                         alt={currGame.name}
                     />
                 </motion.div>
